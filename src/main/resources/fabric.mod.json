@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "arenamod",
+	"version": "${version}",
+	"name": "Arena Mod",
+	"description": "这是一个竞技场类的MOD",
+	"authors": [
+		"明天会更好"
+	],
+	"contact": {
+		"email": "3992763243@qq.com",
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/arenamod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.qidai.arenamod.ArenaMod"
+		],
+		"client": [
+			"com.qidai.arenamod.ArenaModClient"
+		]
+	},
+	"mixins": [
+		"arenamod.mixins.json",
+		{
+			"config": "arenamod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+    "depends": {
+	    "fabricloader": ">=0.15.10",
+    	"minecraft": ">=1.20",
+    	"java": ">=17",
+    	"fabric-api": "*"
+    }
+}

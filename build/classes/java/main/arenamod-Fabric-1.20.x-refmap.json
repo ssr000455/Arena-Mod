@@ -1,0 +1,20 @@
+{
+  "mappings": {
+    "com/qidai/arenamod/mixin/BlockPlacementMixin": {
+      "place": "Lnet/minecraft/class_1747;method_7712(Lnet/minecraft/class_1750;)Lnet/minecraft/class_1269;"
+    },
+    "com/qidai/arenamod/mixin/LivingEntityDeathMixin": {
+      "onDeath": "Lnet/minecraft/class_1309;method_6078(Lnet/minecraft/class_1282;)V"
+    }
+  },
+  "data": {
+    "named:intermediary": {
+      "com/qidai/arenamod/mixin/BlockPlacementMixin": {
+        "place": "Lnet/minecraft/class_1747;method_7712(Lnet/minecraft/class_1750;)Lnet/minecraft/class_1269;"
+      },
+      "com/qidai/arenamod/mixin/LivingEntityDeathMixin": {
+        "onDeath": "Lnet/minecraft/class_1309;method_6078(Lnet/minecraft/class_1282;)V"
+      }
+    }
+  }
+}

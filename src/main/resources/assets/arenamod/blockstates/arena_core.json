@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "arenamod:block/arena_core"
+    }
+  }
+}
