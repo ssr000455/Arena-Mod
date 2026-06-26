@@ -23,6 +23,11 @@
 			"com.qidai.arenamod.ArenaModClient"
 		]
 	},
+	"jars": [
+		{
+			"file": "META-INF/jars/jogg.jar"
+		}
+	],
 	"mixins": [
 		"arenamod.mixins.json",
 		{

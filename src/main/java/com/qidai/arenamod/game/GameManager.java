@@ -60,19 +60,25 @@ public class GameManager {
 
     /** 每个服务端 tick 调用一次，驱动所有延迟任务 */
     public void tickScheduler() {
+        List<Runnable> toExecute = new ArrayList<>();
         synchronized (scheduledTasks) {
             scheduledTasks.removeIf(task -> {
                 task.ticksRemaining--;
                 if (task.ticksRemaining <= 0) {
-                    try {
-                        task.action.run();
-                    } catch (Exception e) {
-                        ArenaMod.LOGGER.error("调度任务执行异常", e);
-                    }
+                    toExecute.add(task.action);
                     return true;
                 }
                 return false;
             });
+        }
+        // 在 removeIf 迭代之外执行任务回调，防止回调中修改 scheduledTasks 引发
+        // CopyOnWriteArrayList 在 ART 上的 ConcurrentModificationException
+        for (Runnable action : toExecute) {
+            try {
+                action.run();
+            } catch (Exception e) {
+                ArenaMod.LOGGER.error("调度任务执行异常", e);
+            }
         }
     }
 

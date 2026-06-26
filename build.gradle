@@ -32,7 +32,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // 引用 libs 下的 .jar（编译依赖）
+    // 引用 libs 下的 .jar（编译依赖，运行时需玩家手动放置到 mods 目录）
     implementation files('libs/jogg.jar')
 }
 

@@ -8,3 +8,5 @@ out/
 .vscode/
 *.swp
 .DS_Store
+*.txt
+*.sh

@@ -9,26 +9,25 @@ import net.minecraft.util.Formatting;
 
 /**
  * 客户端音乐控制指令
- * /arena music next|previous|loop|order|random
+ * /music next|previous|loop|order|random
+ * 使用独立命令名，不与服务端 /arena 命令冲突
  */
 public class ArenaMusicCommands {
 
     public static void register() {
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
-            dispatcher.register(ClientCommandManager.literal("arena")
-                    .then(ClientCommandManager.literal("music")
-                            .then(ClientCommandManager.literal("next")
-                                    .executes(ctx -> executeNext(ctx)))
-                            .then(ClientCommandManager.literal("previous")
-                                    .executes(ctx -> executePrevious(ctx)))
-                            .then(ClientCommandManager.literal("loop")
-                                    .executes(ctx -> executeLoop(ctx)))
-                            .then(ClientCommandManager.literal("order")
-                                    .executes(ctx -> executeOrder(ctx)))
-                            .then(ClientCommandManager.literal("random")
-                                    .executes(ctx -> executeRandom(ctx)))
-                            .executes(ctx -> executeStatus(ctx))
-                    )
+            dispatcher.register(ClientCommandManager.literal("music")
+                    .then(ClientCommandManager.literal("next")
+                            .executes(ctx -> executeNext(ctx)))
+                    .then(ClientCommandManager.literal("previous")
+                            .executes(ctx -> executePrevious(ctx)))
+                    .then(ClientCommandManager.literal("loop")
+                            .executes(ctx -> executeLoop(ctx)))
+                    .then(ClientCommandManager.literal("order")
+                            .executes(ctx -> executeOrder(ctx)))
+                    .then(ClientCommandManager.literal("random")
+                            .executes(ctx -> executeRandom(ctx)))
+                    .executes(ctx -> executeStatus(ctx))
             );
         });
     }
